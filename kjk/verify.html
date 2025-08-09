@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>I am a Robot Verification</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: url('https://images.unsplash.com/photo-1506744038136-46273834b3fb') no-repeat center center fixed;
+            background-size: cover;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .captcha-box {
+            background: rgba(255, 255, 255, 0.95);
+            border: 1px solid #dcdcdc;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            padding: 30px;
+            width: 350px;
+        }
+        .google-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        .google-header img {
+            width: 25px;
+            margin-right: 8px;
+        }
+        .google-header h2 {
+            font-size: 16px;
+            margin: 0;
+            color: #5f6368;
+        }
+        .question {
+            font-size: 14px;
+            margin-bottom: 12px;
+            text-align: left;
+        }
+        .option {
+            display: flex;
+            align-items: center;
+            margin-bottom: 8px;
+            cursor: pointer;
+        }
+        .option input {
+            margin-right: 8px;
+        }
+        .submit-btn {
+            background-color: #1a73e8;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            font-size: 14px;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+        .submit-btn:hover {
+            background-color: #0c59cf;
+        }
+    </style>
+</head>
+<body>
+    <div class="captcha-box">
+        <div class="google-header">
+            
+            <h2>I am a Robot</h2>
+        </div>
+
+        <div class="question">1. Translate "Eee-ee-ee-eee" from Dolphin language:</div>
+        <div class="option"><input type="radio" name="q1"> I love seaweed</div>
+        <div class="option"><input type="radio" name="q1" value="correct"> Your toaster is on fire</div>
+        <div class="option"><input type="radio" name="q1"> Please refill my fish bowl</div>
+
+        <div class="question">2. Which number is secretly plotting world domination?</div>
+        <div class="option"><input type="radio" name="q2"> 42</div>
+        <div class="option"><input type="radio" name="q2" value="correct"> 7</div>
+        <div class="option"><input type="radio" name="q2"> 3.14</div>
+
+        <div class="question">3. Pick the image that smells like electricity:</div>
+        <div class="option"><input type="radio" name="q3" value="correct"> ⚡</div>
+        <div class="option"><input type="radio" name="q3"> 🥔</div>
+        <div class="option"><input type="radio" name="q3"> 🐱</div>
+
+        
+        <button class="submit-btn" onclick="checkCaptcha()">Verify</button>
+    </div>
+
+    <script>
+        function checkCaptcha() {
+            const q1 = document.querySelector('input[name="q1"]:checked');
+            const q2 = document.querySelector('input[name="q2"]:checked');
+            const q3 = document.querySelector('input[name="q3"]:checked');
+
+            if (q1 && q2 && q3 &&
+                q1.value === "correct" &&
+                q2.value === "correct" &&
+                q3.value === "correct") {
+                window.location.href = "success.html";
+            } else {
+                window.location.href = "fail.html";
+            }
+        }
+    </script>
+</body>
+</html>
